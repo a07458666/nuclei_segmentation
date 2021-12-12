@@ -15,35 +15,15 @@ def create_test():
         'images': [],
         'categories': []
     }
-    with open('../../DATA/andysu/Nuclei/dataset/test_img_ids.json') as f:
+    with open('../../DATA/Nuclei/dataset/test_img_ids.json') as f:
         read_data = json.load(f)
         test_data['images'] = read_data
-    # test_data = {
-    #     'images': [],
-    #     'categories': []
-    # }
     test_data['categories'] = []
     category = {}
     category['id'] = 1
     category['name'] = 'Nuclei'
     test_data['categories'].append(category)
     
-    # test_path = '../..//DATA/andysu/Nuclei/dataset/test'
-    # test_index = 0
-    # ids = [1,2,4,5,6,3]
-    # for file in os.listdir(test_path):
-    #     if file.endswith('png'):
-    #         print(file)
-    #         img_path = os.path.join(test_path, file)
-    #         width, height = imagesize.get(img_path)
-    #         image = {}
-    #         image['file_name'] = file
-    #         image['height'] = height
-    #         image['width'] = width
-    #         image['id'] = ids[test_index]
-    #         test_index+=1
-    #         # print("image = ", image)
-    #         test_data['images'].append(image)
     with open('coco_annotations_test.json', 'w') as outfile:
         json.dump(test_data, outfile)
 
@@ -114,13 +94,12 @@ if __name__ == "__main__":
 
     # Read images
     print('Reading images')
-    #MAX_IMAGE_COUNT = 1000
     imgdata_map = {}
     directory = os.fsencode(data_path)
     index = 1
     files = os.listdir(directory)
     num_imgs = len(files)
-    files = files[:22]
+#     files = files[:22]
     print('Files', num_imgs)
     for file in tqdm(files):
         filename = os.fsdecode(file)
@@ -157,7 +136,7 @@ if __name__ == "__main__":
 
     print('Input data processed, writing json')
 
-    with open('coco_annotations.json', 'w') as outfile:
+    with open('coco_annotations_all.json', 'w') as outfile:
         json.dump(data, outfile)
 
     print('Done')

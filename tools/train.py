@@ -20,7 +20,6 @@ from mmdet.utils import collect_env, get_root_logger
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 import cv2
 cv2.setNumThreads(0) 
-os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a detector')
     parser.add_argument('config', help='train config file path')
