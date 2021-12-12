@@ -1,4 +1,4 @@
-#  SVHN Object Detection
+#  Nuclei segmentation
 
 This repository is the implementation of CodaLab competitions [Nuclei segmentation](https://codalab.lisn.upsaclay.fr/competitions/333?secret_key=3b31d945-289d-4da6-939d-39435b506ee5#learn_the_details). 
 
@@ -26,14 +26,12 @@ To train the model(s), run this command:
 python3 tools/train.py <config_path> --work-dir <output_dir> --gpu-ids <gpu id>
 ```
 
-* optimizer  use `SGD`, momentum = 0.9, weight_decay = 1e-3,lr=1e-3
+* optimizer  use `SGD`, momentum = 0.9, weight_decay = 1e-3, lr=1e-3
 * Data augmentation(ShiftScaleRotate, RandomBrightnessContrast, RGBShift, HueSaturationValue, Blur, RandomFlip, ShiftScaleRotate)
 
 ## Reproduceing Submission(Inference)
 
-[model link](https://drive.google.com/file/d/1ogQIq5IpsxPJ94RMBj0IC3HJumWlIAHr/view?usp=sharing)
-
-To Inference my model: [inference.ipynb](https://colab.research.google.com/github/a07458666/digital_object_detection/blob/master/inference.ipynb)
+[model link](https://drive.google.com/file/d/1BN9sT4TP4lOxRBAJ3FmoYPsZLq7b2a5R/view?usp=sharing)
 
 ```
 python3 tools/test.py ./configs/nuclei_custom_config.py <model_path(.pth)> --format-only --options "jsonfile_prefix=./results
